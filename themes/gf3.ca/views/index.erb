@@ -1,12 +1,84 @@
-<h1><%= Marley::Configuration.blog.title %></h1>
+<!-- Navigation -->
+<nav class="content">
+  <header>
+    <h2>Find me on:</h2>
+  </header>
+  <ul>
+    <li id="github">
+      <a href="http://github.com/gf3" title="View my GitHub account">Github</a>
+    </li>
+    <li id="twitter">
+      <a href="http://twitter.com/gf3" title="View my Twitter account">Twitter</a>
+    </li>
+  </ul>
+</nav>
 
-<ul class="posts">
-<% @posts.each do |post| %>
-<li>
-  <small><%= human_date post.published_on %> &mdash;</small>
-  <strong><a href="/<%= post.id %>.html"><%= post.title %></a></strong>
-  <span class="perex"><%= post.perex %> (<%= post.comments.size %> comments)</span>
-</li>
-<% end %>
-</ul>
+<!-- Blog -->
+<section id="blog" class="content">
+  <header>
+    <h2>Perhaps some news?</h2>
+  </header>
+  
+  <!-- Articles -->
+  <% @posts.each do |post| %>
+    <article>
+      <header>
+        <h3><a href="/<%= post.id %>.html"><%= post.title %></a></h3>
+        <a href="/<%= post.id %>.html#comments" class="counter"><%= post.comments.size %> <span class="hidden">Comments</span></a>
+        <p><time datetime="<%= post.published_on %>"><%= human_date post.published_on %></time></p>
+      </header>
+      <p class="perex"><%= post.perex %></p>
+    </article>
+  <% end %>
+</section>
 
+<%
+  friends = {
+    "Bugrain" => "http://www.bugrain.com/news.php",
+    "Winslow Delaney" => "http://www.winslowdelaney.com/",
+    "Tim Fleuhr" => "http://www.tfluehr.com/",
+    "Michael Harris" => "http://harrisdev.net",
+    "Paul Irish" => "http://paulirish.com/",
+    "JeffMo" => "http://jeffmo.us",
+    "PJ Onori" => "http://somerandomdude.com/",
+    "K12 Studios" => "http://www.k12studios.net/",
+    "Carsten Neilson" => "http://heycarsten.com/",
+    "Rob Sterner" => "http://about.robsterner.com/",
+    "Rob Stuart" => "http://robstuart.com/",
+    "Tony Targonski" => "http://compsci.ca/blog",
+    "Jackson Wright" => "http://djleto.com/"
+  }.sort
+  interval = (friends.length/3.0).ceil
+%>
+<!-- Friends -->
+<section id="friends" class="content">
+  <header>
+    <h2>Friends</h2>
+  </header>
+  
+  <ul>
+    <div class="section">
+      <% friends[0, interval].each do |friend| %>
+        <li>
+          <a href="<%= friend[1] %>" title="Visit <%= friend[0] %>&#39;s site"><%= friend[0] %></a>
+        </li>
+      <% end %>
+    </div>
+    
+    <div class="section">
+      <% friends[interval, interval].each do |friend| %>
+        <li>
+          <a href="<%= friend[1] %>" title="Visit <%= friend[0] %>&#39;s site"><%= friend[0] %></a>
+        </li>
+      <% end %>
+    </div>
+    
+    <div class="section">
+      <% friends[interval*2, interval].each do |friend| %>
+        <li>
+          <a href="<%= friend[1] %>" title="Visit <%= friend[0] %>&#39;s site"><%= friend[0] %></a>
+        </li>
+      <% end %>
+    </div>
+  </ul>
+</section>

@@ -1,0 +1,456 @@
+/* Tell the browser to render HTML 5 elements as block */  
+header, footer, aside, nav, article, section {  
+  display: block;  
+}
+
+html, body {
+  color: #3A3939;
+  background: #FFF url(../images/bkg.png) left top repeat;
+}
+
+a {
+  outline:none;
+}
+
+.content a:link {
+  text-decoration: underline;
+  color: #3A3939;
+}
+.content a:visited {
+  text-decoration: underline;
+  color: #3A3939;
+}
+.content a:hover {
+  text-decoration: underline;
+  color: #00b4ff;
+}
+.content a:active {
+  text-decoration: underline;
+  color: #3A3939;
+}
+
+.content a img {
+  border: 0;
+}
+
+.hidden, .content .hidden {
+  display: none;
+}
+
+input[type="submit"] {
+  display: block;
+  padding-right: 7px;
+  height: 34px;
+  border-width: 0 8px 0 11px;
+  border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
+  -webkit-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
+  -moz-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
+  background-color: transparent;
+  color: #3A3939;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: #ADADAD 1px 1px 0px;
+}
+
+input[type="submit"]:focus, input[type="submit"]:hover {
+  outline: none;
+  color: #6C6B6B;
+}
+
+/* Page Heading */
+header#page-heading {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  background: transparent url(../images/header-bkg.png) left top repeat-x;
+}
+
+header#page-heading h1 {
+  margin: 0;
+  padding: 0;
+}
+
+header#page-heading h1 a {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 0;
+  width: 500px;
+  height: 230px;
+  background: transparent url(../images/logo.png) left bottom no-repeat;
+  text-indent: -9999px;
+}
+
+header#page-heading h2 {
+  margin: 0 auto 20px auto;
+  padding: 0;
+  width: 500px;
+  height: 85px;
+  background: transparent url(../images/gianni.png) left top no-repeat;
+  text-indent: -9999px;
+}
+
+/* Navigation */
+nav {
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 460px;
+}
+
+nav header h2 {
+  margin: 0;
+  padding: 0;
+  width: 86px;
+  height: 14px;
+  background: transparent url(../images/find-me-on.png) left top no-repeat;
+  text-indent: -9999px;
+}
+
+nav ul {
+  display: block;
+  margin: 0 !important;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+}
+
+nav ul li a {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  height: 53px;
+  text-indent: -9999px;
+}
+
+nav ul li#github a {
+  margin-right: 10px;
+  width: 211px;
+  background: transparent url(../images/nav-github.png) left top no-repeat;
+}
+
+nav ul li#github a:hover {
+  background-position: left -53px;
+}
+
+nav ul li#twitter a {
+  width: 238px;
+  background: transparent url(../images/nav-twitter.png) left top no-repeat;
+}
+
+nav ul li#twitter a:hover {
+  background-position: left -53px;
+}
+
+/* Blog */
+section#blog {
+  margin: 0 auto;
+  width: 620px;
+}
+
+section#blog > header {
+  margin: 20px auto 0 auto;
+  padding-bottom: 45px;
+  width: 620px;
+  background: transparent url(../images/blog-header.png) left bottom no-repeat;
+}
+
+section#blog > header h2 {
+  margin: 0 0 0 80px;
+  padding: 0;
+  width: 156px;
+  height: 17px;
+  background: transparent url(../images/perhaps-some-news.png) left top no-repeat;
+  text-indent: -9999px;
+}
+
+section#blog article {
+  margin: 0 auto 20px auto;
+  padding: 0;
+  width: 460px;
+}
+
+section#blog article header h3 {
+  float: left;
+  margin: 0 10px 0 0;
+  text-shadow: #FFF 1px 1px 1px;
+}
+
+section#blog article header p {
+  clear: both;
+  margin: 0 0 10px 0;
+}
+
+section#blog article header p, section#blog article header p a {
+  color: #CDCDCD;
+}
+
+section#blog article ul.categories {
+  display: block;
+  margin: 0 !important;
+  padding: 0;
+  text-indent: 0;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+section#blog article ul.categories:before {
+  content: "Filed under: ";
+}
+
+section#blog article ul.categories li {
+  display: inline;
+  margin: 0 !important;
+  padding: 0;
+  text-indent: 0;
+  color: #CDCDCD;
+}
+
+section#blog article ul.categories li + li:before {
+  content: ", ";
+}
+
+/* Friends */
+section#friends {
+  margin: 30px auto 0 auto;
+  padding-top: 20px;
+  width: 620px;
+  background: transparent url(../images/line.png) left top no-repeat;
+}
+
+section#friends header h2 {
+  margin: 0 0 10px 80px;
+  padding: 0;
+  width: 54px;
+  height: 14px;
+  background: transparent url(../images/friends.png) left top no-repeat;
+  text-indent: -9999px;
+}
+
+section#friends ul {
+  display: block;
+  margin: 0 auto !important;
+  padding: 0;
+  width: 460px;
+  text-indent: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+section#friends ul li {
+  margin: 0;
+  padding: 0 0 0 20px;
+  background: transparent url(../images/bullet.png) left 2px no-repeat;
+  text-indent: 0;
+}
+
+section#friends ul .section {
+  display: block;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 143px;
+}
+
+section#friends ul .section+.section {
+  margin-left: 15px;
+}
+
+/* Comments */
+section#comments {
+  margin: 30px auto 0 auto;
+  padding-top: 20px;
+  width: 620px;
+  background: transparent url(../images/line.png) left top no-repeat;
+}
+
+section#comments header {
+  margin: 0 auto 10px auto;
+  width: 460px;
+  overflow: hidden;
+}
+
+section#comments header h2 {
+  float: left;
+  margin: 2px 10px 0 0;
+  padding: 0;
+  width: 80px;
+  height: 13px;
+  background: transparent url(../images/comments.png) left top no-repeat;
+  text-indent: -9999px;
+}
+
+section#comments header .counter, section#blog header .counter {
+  display: inline;
+  margin: 0;
+  padding: 3px 7px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color: #6b8fad;
+  font-weight: bold;
+  color: #FFF;
+  text-decoration: none;
+  box-shadow: 1px 1px 1px #FFF;
+  -webkit-box-shadow: 1px 1px 1px #FFF;
+}
+section#comments header .counter:hover, section#blog header .counter:hover {
+  background-color: #B6C8D7;
+}
+
+section#comments article {
+  margin: 0 auto;
+  width: 460px;
+}
+
+section#comments article + article {
+  padding-top: 20px;
+  border-top: 1px solid #CDCDCD;
+}
+
+section#comments article header .comment-author {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+section#comments article header time, section#comments article header time a {
+  color: #CDCDCD;
+}
+
+/* Comment Form */
+section#comment-form {
+  margin: 30px auto 0 auto;
+  padding-top: 20px;
+  width: 620px;
+  background: transparent url(../images/line.png) left top no-repeat;
+}
+
+section#comment-form header {
+  margin: 0 auto;
+  width: 460px;
+}
+
+section#comment-form header h2 {
+  margin: 0 0 10px 0;
+  padding: 0;
+  width: 157px;
+  height: 17px;
+  background: transparent url(../images/leave-sugar.png) left top no-repeat;
+  text-indent: -9999px;
+}
+
+section#comment-form form {
+  margin: 0 auto;
+  width: 460px;
+}
+
+section#comment-form form p {
+
+}
+
+section#comment-form form p label {
+  display: block;
+  float: left;
+  margin-right: 20px;
+  width: 80px;
+  font-family: Arial;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+section#comment-form form p input[type="text"], section#comment-form form p input[type="email"], section#comment-form form p input[type="url"], section#comment-form form p textarea {
+  width: 350px;
+}
+
+section#comment-form form p.required small.required {
+}
+
+section#comment-form form p textarea {
+  height: 150px;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+section#comment-form form p small, section#comment-form form p input[type="submit"] {
+  display: block;
+  margin-left: 100px;
+}
+
+section#comment-form form p input[type="submit"] {
+  display: block;
+  padding-right: 7px;
+  height: 34px;
+  border-width: 0 8px 0 11px;
+  -webkit-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
+  -moz-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
+  background-color: transparent;
+  color: #3A3939;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: #ADADAD 1px 1px 0px;
+}
+
+section#comment-form form p input[type="submit"]:focus, section#comment-form form p input[type="submit"]:hover {
+  outline: none;
+  color: #6C6B6B;
+}
+
+section#comment-form form div.error {
+  margin: -15px 0 0 0;
+  padding: 17px 0 7px 110px;
+  width: 343px;
+  height: 23px;
+  background: transparent url(../images/error.png) right top no-repeat;
+}
+
+/* Footer */
+footer {
+  margin: 30px auto 50px auto;
+  padding-top: 20px;
+  width: 620px;
+  background: transparent url(../images/line.png) left top no-repeat;
+}
+
+footer header h2 {
+  margin: 0 0 10px 80px;
+  padding: 0;
+  width: 61px;
+  height: 14px;
+  background: transparent url(../images/kthxbai.png) left top no-repeat;
+  text-indent: -9999px;
+}
+
+footer p {
+  display: block;
+  margin: 0 auto;
+  width: 460px;
+  color: #CDCDCD;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

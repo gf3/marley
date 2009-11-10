@@ -1,105 +1,127 @@
-<h2><a href="/"><%= Marley::Configuration.blog.title %></a></h2>
+<!-- Blog -->
+<section id="blog" class="content">
+  <header>
+    <h2>Perhaps some news?</h2>
+  </header>
+  
+  <!-- Articles -->
+  <article>
+    <header>
+      <h3><%= @post.title %></h3>
+      <p>On <time datetime="<%= @post.published_on %>"><%= human_date @post.published_on %></time> &ndash; <a href="http://<%= hostname %>/<%= @post.id %>/feed" class="image">Feed</a> &ndash; <a href="/<%= @post.id %>.html">Permalink</a></p>
+    </header>
+    
+    <div class="post-body">
+      <%= @post.body_html %>
+    </div>
+    
+    <% if @post.meta['categories'] %>
+    <ul class="categories">
+      <% @post.meta['categories'].each do |category| %><li><%= category %></li><% end %>
+    </ul>
+    <% end %>
+  </article>
+</section>
 
-<div id="article">
-
-  <div class="post">
-  <h1>
-    <%=h @post.title %>
-    <span class="meta">
-      <%= human_date @post.published_on %> 
-      <a href="#comments"><%= @post.comments.size %>&nbsp;comments</a>&nbsp;<a href="http://<%= hostname %>/<%= @post.id %>/feed" class="image">[Feed]</a>
-    </span>
-  </h1>
-
-  <% if @post.meta['categories'] %>
-  <div class="categories">
-    <p><em>Categories: </em><%= @post.meta['categories'].join(', ') %></p>
-  </div><!-- /categories -->
+<!-- Comments -->
+<section id="comments" class="content">
+  <header>
+    <h2>Comments</h2>
+    <div class="counter"><%= @post.comments.size %></div>
+  </header>
+  
+  <% if params[:spam_deleted] && authorized? %>
+    <div id="spam_deleted" class="info-panel">
+      <div class="in">
+        <p>OK, <%= params[:spam_deleted] %> spam comments deleted.</p>
+      </div>
+    </div>
   <% end %>
   
-  <div class="body">
-    <%= @post.body_html %>
-  </div><!-- /body -->
+  <% if authorized? %>
+  <form action="/admin/<%= @post.id %>/spam" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <% end %>
   
-  <div id="comments">
-    
-    <h3>Comments</h3>
-
-    <% if params[:spam_deleted] && authorized? %>
-    <div id="spam_deleted"><div class="in"><p>OK, <%= params[:spam_deleted] %> spam comments deleted.</p></div></div>
-    <% end %>
-
-    <% if authorized? %>
-    <form action="/admin/<%= @post.id %>/spam" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <% end %>
-    
-    <% @post.comments.each_with_index do |comment, index| %>
-    <% if params[:thank_you] && comment == @post.comments.last %>
-    <div id="comment_added_thanks"><div class="in"><p>Thank you for your comment!</p></div></div>
-    <% end %>
-    <div class="comment<%= ' spam' if comment.spam? %>" id="comment_<%= comment.id %>">
-      <% if authorized? %>
-      <div class="comment_controls">
-      <input type="checkbox" name="spam_comment_ids[]" value="<%= comment.id %>" id="spam_comment_id_<%= comment.id %>"<%= ' checked="checked"' if comment.spam? %> />
-      <label for="spam_comment_id_<%= comment.id %>">Spam?</label>
-      </div><!-- /comment_controls -->
-      <% end %>
-      
-      <div class="number"><span class="nodisplay"># </span><%= index.succ %></div>
-      <div class="author">
-        <strong>
+  <% @post.comments.each_with_index do |comment, index| %>
+  <!-- Comment <%= index %> -->
+  <% if params[:thank_you] && comment == @post.comments.last %>
+  <div id="comment-added-thanks">
+    <p>Thank you for your comment!</p>
+  </div>
+  <% end %>
+  <article class="comment<%= ' spam' if comment.spam? %>" id="comment-<%= comment.id %>">
+    <header>
+      <div class="comment-author">
         <%= comment.url ? "<a href=\"#{h(comment.url)}\">#{h(comment.author)}</a>" : h(comment.author) %>
-        </strong> wrote on <%= human_date(comment.created_at) %>:</div>
-      <div class="message">
-        <%= markup h(comment.body) %>
       </div>
-    </div><!-- /comment -->
+      <time datetime="<%= comment.created_at %>"><a href="http://<%= comment.permalink %>" title="permalink"><%= human_date comment.created_at %></a></time>
+    </header>
+    
+    <div class="post-body">
+      <%= markup h(comment.body) %>
+    </div>
+  </article>
+  
+  <% if authorized? %>
+  <div class="comment-controls">
+    <input type="checkbox" name="spam_comment_ids[]" value="<%= comment.id %>" id="spam_comment_id_<%= comment.id %>"<%= ' checked="checked"' if comment.spam? %> />
+    <label for="spam_comment_id_<%= comment.id %>">Spam?</label>
+  </div>
+  <% end %>
+  <% end %>
+  
+  <% if authorized? %>
+  <div id="admin-panel" class="info-panel">
+    <h3>MARLEY ADMIN PANEL</h3>
+    <p><input type="submit" value="Delete marked comments as spam. Careful."></p>
+  </div>
+  </form>
+  <% end %>
+</section>
 
-    <% end %>
+<!-- Comment Form -->
+<section id="comment-form" class="content">
+  <header>
+    <h2 id="add-comment">Leave me some sugar</h2>
+  </header>
+  
+  <form action="/<%= @post.id %>/comments#add-comment" method="post" accept-charset="utf-8">
+    <p class="required">
+      <label for="author">Name</label>
+      <input name="author" id="author" type="text" required />
+      <small class='required'>Required</small>
+      <% if  @comment and @comment.errors %>
+        <div class="error">Author <%= @comment.errors.on(:author) %></div>
+      <% end %>
+    </p>
+  
+    <p class="required">
+      <label for="email">E-mail</label>
+      <input name="email" id="email" type="email" required />
+      <small class='required'>Required</small>
+      <% if  @comment and @comment.errors %>
+        <div class="error">E-Mail <%= @comment.errors.on(:email) %></div>
+      <% end %>
+    </p>
+  
+    <p>
+      <label for="url">Website</label>
+      <input name="url" id="url" type="url" />
+    </p>
+  
+    <p class="required">
+      <label for="body">Comment</label>
+      <textarea name="body" id="body" required></textarea>
+      <small class='required'>Required</small>
+      <small>(Use Markdown syntax)</small>
+      <% if @comment and @comment.errors %>
+        <div class="error">Message <%= @comment.errors.on(:body) if @comment %></div>
+      <% end %>
+    </p>
 
-    <% if authorized? %>
-    <div id="admin_panel"><div id="admin_panel_content">
-      <p>MARLEY ADMIN PANEL</p>
-      <p><input type="submit" value="Delete marked comments as spam. Careful."></p>
-      </form>
-    </div></div><!-- /admin_panel -->
-    <% end %>
-
-    <div id="comment_form">
-    <div class="container">
-
-      <h3 id="add_comment">Add Comment</h3>
-
-      <form action="/<%= @post.id %>/comments#add_comment" method="post" accept-charset="utf-8">
-
-        <label class="required">Your name:</label>
-        <input type="text" class="text" name="author" value="" id="author" />
-        <span>(required)</span>
-        <% if  @comment and @comment.errors %><div class="error">Author <%= @comment.errors.on(:author) %></div><% end %>
-        <br />
-        <label class="required">Your e-mail:</label>
-        <input type="text" class="text" name="email" value="" id="email" />
-        <span>(required, won't be displayed)</span>
-        <% if  @comment and @comment.errors %><div class="error">E-Mail <%= @comment.errors.on(:email) %></div><% end %>
-        <br />
-
-        <label>Your website:</label>
-        <input type="text" class="text" name="url" value="" id="url" />
-        <br />
-
-        <label>Message:</label>
-        <textarea name="body" rows="8" cols="40"></textarea>
-        <% if @comment and @comment.errors %><div class="error">Message <%= @comment.errors.on(:body) if @comment %></div><% end %>
-        <span style="margin-left: 13.5em">(Use Markdown syntax)</span>
-        <br />
-
-        <input class="submit" type="submit" value="Send message &rarr;" accesskey="s" />
-      </form>
-    </div><!-- /container -->
-    <div class="clear">&nbsp;</div>
-    </div><!-- /comment_form -->
-
-  </div><!-- /comments -->
-
-</div><!-- /article -->
+    <p>
+      <input type="submit" value="Post comment" accesskey="s" />
+    </p>
+  </form>
+</section>
