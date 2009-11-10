@@ -19,10 +19,12 @@
 
 <!-- Page Heading -->
 <header id="page-heading" class="content">
-  <h1><a href="/">gf3.ca</a></h1>
-  <% unless @post %>
-  <h2>Hai! I am Gianni Chiappetta.</h2>
-  <% end %>
+  <hgroup>
+    <h1><a href="/">gf3.ca</a></h1>
+    <% unless @post %>
+    <h2>Hai! I am Gianni Chiappetta.</h2>
+    <% end %>
+  </hgroup>
 </header>
 
 <%= yield %>

@@ -59,28 +59,14 @@
   </header>
   
   <ul>
+    <% 3.times do |i| %>
     <div class="section">
-      <% friends[0, interval].each do |friend| %>
+      <% friends[interval * i, interval].each do |friend| %>
         <li>
           <a href="<%= friend[1] %>" title="Visit <%= friend[0] %>&#39;s site"><%= friend[0] %></a>
         </li>
       <% end %>
     </div>
-    
-    <div class="section">
-      <% friends[interval, interval].each do |friend| %>
-        <li>
-          <a href="<%= friend[1] %>" title="Visit <%= friend[0] %>&#39;s site"><%= friend[0] %></a>
-        </li>
-      <% end %>
-    </div>
-    
-    <div class="section">
-      <% friends[interval*2, interval].each do |friend| %>
-        <li>
-          <a href="<%= friend[1] %>" title="Visit <%= friend[0] %>&#39;s site"><%= friend[0] %></a>
-        </li>
-      <% end %>
-    </div>
+    <% end %>
   </ul>
 </section>
