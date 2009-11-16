@@ -5,7 +5,7 @@ header, footer, aside, nav, article, section {
 
 html, body {
   color: #3A3939;
-  background: #FFF url(../images/bkg.png) left top repeat;
+  background: #FFF url(/images/bkg.png) left top repeat;
 }
 
 a {
@@ -42,9 +42,9 @@ input[type="submit"] {
   padding-right: 7px;
   height: 34px;
   border-width: 0 8px 0 11px;
-  border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
-  -webkit-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
-  -moz-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
+  border-image: url(/images/button.png) 0 8 0 11 stretch stretch;
+  -webkit-border-image: url(/images/button.png) 0 8 0 11 stretch stretch;
+  -moz-border-image: url(/images/button.png) 0 8 0 11 stretch stretch;
   background-color: transparent;
   color: #3A3939;
   font-size: 14px;
@@ -62,7 +62,7 @@ header#page-heading {
   margin: 0 auto;
   padding: 0;
   width: 100%;
-  background: transparent url(../images/header-bkg.png) left top repeat-x;
+  background: transparent url(/images/header-bkg.png) left top repeat-x;
 }
 
 header#page-heading h1 {
@@ -76,7 +76,7 @@ header#page-heading h1 a {
   padding: 0;
   width: 500px;
   height: 230px;
-  background: transparent url(../images/logo.png) left bottom no-repeat;
+  background: transparent url(/images/logo.png) left bottom no-repeat;
   text-indent: -9999px;
 }
 
@@ -85,7 +85,7 @@ header#page-heading h2 {
   padding: 0;
   width: 500px;
   height: 85px;
-  background: transparent url(../images/gianni.png) left top no-repeat;
+  background: transparent url(/images/gianni.png) left top no-repeat;
   text-indent: -9999px;
 }
 
@@ -101,7 +101,7 @@ nav header h2 {
   padding: 0;
   width: 86px;
   height: 14px;
-  background: transparent url(../images/find-me-on.png) left top no-repeat;
+  background: transparent url(/images/find-me-on.png) left top no-repeat;
   text-indent: -9999px;
 }
 
@@ -133,7 +133,7 @@ nav ul li a {
 nav ul li#github a {
   margin-right: 10px;
   width: 211px;
-  background: transparent url(../images/nav-github.png) left top no-repeat;
+  background: transparent url(/images/nav-github.png) left top no-repeat;
 }
 
 nav ul li#github a:hover {
@@ -142,7 +142,7 @@ nav ul li#github a:hover {
 
 nav ul li#twitter a {
   width: 238px;
-  background: transparent url(../images/nav-twitter.png) left top no-repeat;
+  background: transparent url(/images/nav-twitter.png) left top no-repeat;
 }
 
 nav ul li#twitter a:hover {
@@ -159,7 +159,7 @@ section#blog > header {
   margin: 20px auto 0 auto;
   padding-bottom: 45px;
   width: 620px;
-  background: transparent url(../images/blog-header.png) left bottom no-repeat;
+  background: transparent url(/images/blog-header.png) left bottom no-repeat;
 }
 
 section#blog > header h2 {
@@ -167,7 +167,7 @@ section#blog > header h2 {
   padding: 0;
   width: 156px;
   height: 17px;
-  background: transparent url(../images/perhaps-some-news.png) left top no-repeat;
+  background: transparent url(/images/perhaps-some-news.png) left top no-repeat;
   text-indent: -9999px;
 }
 
@@ -222,7 +222,7 @@ section#friends {
   margin: 30px auto 0 auto;
   padding-top: 20px;
   width: 620px;
-  background: transparent url(../images/line.png) left top no-repeat;
+  background: transparent url(/images/line.png) left top no-repeat;
 }
 
 section#friends header h2 {
@@ -230,7 +230,7 @@ section#friends header h2 {
   padding: 0;
   width: 54px;
   height: 14px;
-  background: transparent url(../images/friends.png) left top no-repeat;
+  background: transparent url(/images/friends.png) left top no-repeat;
   text-indent: -9999px;
 }
 
@@ -247,7 +247,7 @@ section#friends ul {
 section#friends ul li {
   margin: 0;
   padding: 0 0 0 20px;
-  background: transparent url(../images/bullet.png) left 2px no-repeat;
+  background: transparent url(/images/bullet.png) left 2px no-repeat;
   text-indent: 0;
 }
 
@@ -268,7 +268,7 @@ section#comments {
   margin: 30px auto 0 auto;
   padding-top: 20px;
   width: 620px;
-  background: transparent url(../images/line.png) left top no-repeat;
+  background: transparent url(/images/line.png) left top no-repeat;
 }
 
 section#comments header {
@@ -283,7 +283,7 @@ section#comments header h2 {
   padding: 0;
   width: 80px;
   height: 13px;
-  background: transparent url(../images/comments.png) left top no-repeat;
+  background: transparent url(/images/comments.png) left top no-repeat;
   text-indent: -9999px;
 }
 
@@ -329,7 +329,7 @@ section#comment-form {
   margin: 30px auto 0 auto;
   padding-top: 20px;
   width: 620px;
-  background: transparent url(../images/line.png) left top no-repeat;
+  background: transparent url(/images/line.png) left top no-repeat;
 }
 
 section#comment-form header {
@@ -342,7 +342,7 @@ section#comment-form header h2 {
   padding: 0;
   width: 157px;
   height: 17px;
-  background: transparent url(../images/leave-sugar.png) left top no-repeat;
+  background: transparent url(/images/leave-sugar.png) left top no-repeat;
   text-indent: -9999px;
 }
 
@@ -390,8 +390,8 @@ section#comment-form form p input[type="submit"] {
   padding-right: 7px;
   height: 34px;
   border-width: 0 8px 0 11px;
-  -webkit-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
-  -moz-border-image: url(../images/button.png) 0 8 0 11 stretch stretch;
+  -webkit-border-image: url(/images/button.png) 0 8 0 11 stretch stretch;
+  -moz-border-image: url(/images/button.png) 0 8 0 11 stretch stretch;
   background-color: transparent;
   color: #3A3939;
   font-size: 14px;
@@ -409,7 +409,7 @@ section#comment-form form div.error {
   padding: 17px 0 7px 110px;
   width: 343px;
   height: 23px;
-  background: transparent url(../images/error.png) right top no-repeat;
+  background: transparent url(/images/error.png) right top no-repeat;
 }
 
 /* Footer */
@@ -417,7 +417,7 @@ footer {
   margin: 30px auto 50px auto;
   padding-top: 20px;
   width: 620px;
-  background: transparent url(../images/line.png) left top no-repeat;
+  background: transparent url(/images/line.png) left top no-repeat;
 }
 
 footer header h2 {
@@ -425,7 +425,7 @@ footer header h2 {
   padding: 0;
   width: 61px;
   height: 14px;
-  background: transparent url(../images/kthxbai.png) left top no-repeat;
+  background: transparent url(/images/kthxbai.png) left top no-repeat;
   text-indent: -9999px;
 }
 
