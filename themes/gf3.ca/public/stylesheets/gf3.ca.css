@@ -387,21 +387,23 @@ section#comment-form form p small, section#comment-form form p input[type="submi
 
 section#comment-form form p input[type="submit"] {
   display: block;
-  padding-right: 7px;
-  height: 34px;
-  border-width: 0 8px 0 11px;
-  -webkit-border-image: url(/images/button.png) 0 8 0 11 stretch stretch;
-  -moz-border-image: url(/images/button.png) 0 8 0 11 stretch stretch;
+  height: 36px;
+  line-height: 36px;
+  border-width: 0 25px 0 26px;
+  -webkit-border-image: url(/images/submit.png) 0 25 0 26 stretch stretch;
+  -moz-border-image: url(/images/submit.png) 0 25 0 26 stretch stretch;
   background-color: transparent;
-  color: #3A3939;
+  color: #CDCDCD;
   font-size: 14px;
   font-weight: bold;
-  text-shadow: #ADADAD 1px 1px 0px;
+  text-shadow: #6C6B6B -1px -1px 0px;
 }
 
 section#comment-form form p input[type="submit"]:focus, section#comment-form form p input[type="submit"]:hover {
   outline: none;
-  color: #6C6B6B;
+  -webkit-border-image: url(/images/submit_active.png) 0 25 0 26 stretch stretch;
+  -moz-border-image: url(/images/submit_active.png) 0 25 0 26 stretch stretch;
+  color: #88d8f6;
 }
 
 section#comment-form form div.error {
