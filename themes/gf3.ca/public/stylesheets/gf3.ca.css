@@ -387,16 +387,18 @@ section#comment-form form p small, section#comment-form form p input[type="submi
 
 section#comment-form form p input[type="submit"] {
   display: block;
+  padding:; 0;
   height: 36px;
-  line-height: 36px;
   border-width: 0 25px 0 26px;
   -webkit-border-image: url(/images/submit.png) 0 25 0 26 stretch stretch;
   -moz-border-image: url(/images/submit.png) 0 25 0 26 stretch stretch;
   background-color: transparent;
   color: #CDCDCD;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: normal;
   text-shadow: #6C6B6B -1px -1px 0px;
+  text-transform: uppercase;
+  line-height: 36px;
 }
 
 section#comment-form form p input[type="submit"]:focus, section#comment-form form p input[type="submit"]:hover {
