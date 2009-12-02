@@ -3,6 +3,21 @@
 <head>
   <title><%= h(@page_title) %></title>
   
+  <% if Marley::Configuration.ga_code && Sinatra::Application.environment == :production %>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '<%= Marley::Configuration.ga_code %>']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      ga.setAttribute('async', 'true');
+      document.documentElement.firstChild.appendChild(ga);
+    })();
+  </script>
+  <% end %>
+  
   <link href="http://<%= hostname %>/feed" rel="alternate" title="Feed for <%= h(Marley::Configuration.blog.title) %>" type="application/atom+xml" />
   <link href="http://<%= hostname %>/feed/comments" rel="alternate" title="Comments for <%= h(Marley::Configuration.blog.title) %>" type="application/atom+xml" />
   <% if @post %>
@@ -37,17 +52,6 @@
   
   <p>Today, I shall rip time asunder.</p>
 </footer>
-
-<% if Marley::Configuration.ga_code && Sinatra::Application.environment == :production %>
-<script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-  var pageTracker = _gat._getTracker("<%= Marley::Configuration.ga_code %>");
-  pageTracker._trackPageview();
-</script>
-<% end %>
 
 </body>
 </html>
